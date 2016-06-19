@@ -1,0 +1,216 @@
+/* default styles begin here */
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+html {
+  font: 100%/1.5 "Lato", Arial, sans-serif;
+  font-weight: 400;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: #fff ;
+  color: #333;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5 {
+  font-weight: 300;
+  margin: 0;
+}
+
+h1 {
+  font-size: 1.3rem;
+  line-height: 1.3em;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+}
+
+h2 {
+  font-size: 1.1rem;
+  line-height: 1.1em;
+  margin-bottom: 1.1rem;
+}
+
+a {
+	color: #739CCE;
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+footer {
+  text-align: center;
+  font-size: 80%;
+}
+
+/* Section */
+section {
+  border-top: 1px solid #111;
+  padding: 2rem 0;
+}
+
+section:first-of-type { border-top: none; }
+
+/* Mobile First Grid */
+.column { margin-bottom: 1.5rem; }
+
+@media (min-width: 40rem) {
+  html { font-size: 112%; }
+  h1 { font-size: 1.5rem; }
+  section {
+    padding: 2rem 0;
+    margin: auto 5rem;
+  }
+
+  .column {
+    float: left;
+    margin: 0;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .column.two-thirds { width: 66.7%; }
+  .column.half { width: 50%; }
+}
+
+@media (min-width: 64rem) {
+  html { font-size: 120%; }
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 48rem;
+  width: 90%;
+}
+
+/* Clearfix by Nicolas Gallagher */
+.clearfix:before,
+.clearfix:after {
+  content: " ";
+  display: table;
+}
+
+.clearfix:after { clear: both; }
+.clearfix { zoom: 1; }
+
+.center { text-align: center; }
+.left { text-align: left; }
+
+/* Navigation menu */
+nav {
+    height: 40px;
+    width: 100%;
+    background: #222;
+    font-size: 11pt;
+    font-weight: 300;
+    position: fixed;
+    border-bottom: 2px solid #283744;
+    /* renders text with the normal Mac OS X subpixel antialiasing */
+    -webkit-font-smoothing: auto;
+    -moz-osx-font-smoothing: auto;
+}
+
+nav ul {
+    padding: 0;
+    margin: 0 auto;
+    width: 600px;
+    height: 40px;
+}
+
+nav li {
+    display: inline;
+    float: left;
+}
+
+nav a {
+    color: #eee;
+    display: inline-block;
+    width: 100px;
+    text-align: center;
+    text-decoration: none;
+    line-height: 40px;
+    text-shadow: 1px 1px 0px #283744;
+}
+
+nav a:hover, nav a:active {
+    background: #739cce;
+    color: #333;
+    text-decoration: none;
+}
+
+/* mobile specific styles screen 600px and lower (mobile.css) */
+@media screen and (max-width: 600px) {
+    nav {
+        height: auto;
+    }
+    nav ul {
+        width: 100%;
+        display: block;
+        height: auto;
+    }
+    nav li {
+        width: 100%;
+        float: left;
+        position: relative;
+    }
+    nav li a {
+        border-bottom: 1px solid #576979;
+        border-right: 1px solid #576979;
+    }
+    nav a {
+        text-align: left;
+        width: 100%;
+        text-indent: 25px;
+
+        color: #eee;
+        text-shadow: 1px 1px 0px #283744;
+    }
+/*}
+
+@media screen and (max-width: 600px) {
+*/
+    /* moved from 480 */
+    nav {
+        border-bottom: 0;
+    }
+    nav ul {
+        display: none;
+        height: auto;
+    }
+    nav a#pull {
+        display: block;
+        /*background-color: #283744;  */
+        width: 100%;
+        position: relative;
+    }
+    nav a#pull:after {
+        content: "";
+        background: url('../media/nav-icon.png') no-repeat;
+        width: 30px;
+        height: 30px;
+        display: inline-block;
+        position: absolute;
+        right: 15px;
+        top: 10px;
+    }
+}
+
+/* desktop specific styles (desktop.css) */
+@media screen and (min-width: 600px) {
+
+    /* this makes the fancy color background */
+    nav li a {
+        border-right: 1px solid #576979;
+    }
+    nav li:last-child a {
+        border-right: 0;
+    }
+
+    nav a#pull {
+        display: none;
+    }
+}
