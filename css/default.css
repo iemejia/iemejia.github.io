@@ -1,9 +1,5 @@
 /* default styles begin here */
 
-*, *:before, *:after {
-  box-sizing: border-box;
-}
-
 html {
   font: 100%/1.5 "Lato", Arial, sans-serif;
   font-weight: 400;
