@@ -504,34 +504,37 @@
 
     <footer>Last update: March 8, 2014</footer>
 
-    <script src="js/jquery.min.js"></script>
-    <script src="js/jquery.easing.min.js"></script>
-    <script src="js/jquery.scrollTo.min.js"></script>
     <script>
-      $(document).ready(function (){
-        var pull        = $('#pull');
-            menu        = $('nav ul');
-            menuHeight  = menu.height();
+      document.addEventListener('DOMContentLoaded', function() {
+        var pull = document.getElementById('pull');
+        var menu = document.querySelector('nav ul');
 
-        $(pull).on('click', function(e) {
-            e.preventDefault();
-            menu.slideToggle();
+        // Mobile menu toggle
+        pull.addEventListener('click', function(e) {
+          e.preventDefault();
+          menu.classList.toggle('open');
         });
 
-        $('.section').click(function(e){
+        // Smooth scroll for section links
+        document.querySelectorAll('.section').forEach(function(link) {
+          link.addEventListener('click', function(e) {
             e.preventDefault();
-            if (pull.is(':visible')) {
-              menu.slideToggle('slow');
+            // Close mobile menu if open
+            if (window.getComputedStyle(pull).display !== 'none') {
+              menu.classList.remove('open');
             }
-            section = $(this).attr('href');
-            $.scrollTo(section, 800, {easing: 'easeInOutQuad'});
+            var target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+              target.scrollIntoView({ behavior: 'smooth' });
+            }
+          });
         });
 
-        $(window).resize(function(){
-            var w = $(window).width();
-            if(w > 320 && menu.is(':hidden')) {
-                menu.removeAttr('style');
-            }
+        // Reset menu on resize
+        window.addEventListener('resize', function() {
+          if (window.innerWidth > 600) {
+            menu.classList.remove('open');
+          }
         });
       });
     </script>

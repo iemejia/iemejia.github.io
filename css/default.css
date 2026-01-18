@@ -12,6 +12,7 @@ html {
   -moz-osx-font-smoothing: grayscale;
   background: #fff ;
   color: #333;
+  scroll-behavior: smooth;
 }
 
 /* Typography */
@@ -149,8 +150,13 @@ nav a:hover, nav a:active {
     }
     nav ul {
         width: 100%;
-        display: block;
-        height: auto;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-out;
+    }
+    nav ul.open {
+        max-height: 300px;
+        transition: max-height 0.3s ease-in;
     }
     nav li {
         width: 100%;
@@ -169,17 +175,9 @@ nav a:hover, nav a:active {
         color: #eee;
         text-shadow: 1px 1px 0px #283744;
     }
-/*}
-
-@media screen and (max-width: 600px) {
-*/
     /* moved from 480 */
     nav {
         border-bottom: 0;
-    }
-    nav ul {
-        display: none;
-        height: auto;
     }
     nav a#pull {
         display: block;
