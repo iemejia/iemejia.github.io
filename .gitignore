@@ -1,0 +1,20 @@
+# Hugo build output
+/public/
+/resources/_gen/
+
+# Hugo stats file
+hugo_stats.json
+
+# Old dist folder (from previous build system)
+/dist/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+*.swp
+*.swo
+*~
+.idea/
+.vscode/

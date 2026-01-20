@@ -1,0 +1,50 @@
+{{ define "main" }}
+<!-- Home -->
+<section id="home">
+  <div class="container">
+    <div class="row clearfix">
+      <div class="column half">
+        {{ .Content }}
+      </div>
+      <div class="column half center">
+        {{ with .Site.Params.profileImage }}
+        <img src="{{ . | relURL }}" alt="Profile Picture" style="width: 100%; max-width: 280px;" />
+        {{ end }}
+        <p style="margin-top: 0.75rem;">{{ .Site.Params.author }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Blog Posts -->
+<section id="blog">
+  <div class="container">
+    <div class="row clearfix">
+      <div class="column">
+        <h1>Latest Posts</h1>
+      </div>
+    </div>
+    <div class="row clearfix">
+      <div class="column">
+        {{ $posts := where .Site.RegularPages "Section" "posts" }}
+        {{ if $posts }}
+        <ul class="post-list">
+          {{ range first 5 $posts }}
+          <li>
+            <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+            <span class="post-date">{{ .Date.Format $.Site.Params.dateFormat }}</span>
+            {{ with .Summary }}<p class="post-summary">{{ . }}</p>{{ end }}
+          </li>
+          {{ end }}
+        </ul>
+        {{ if gt (len $posts) 5 }}
+        <p><a href="{{ "posts/" | relURL }}">View all posts &rarr;</a></p>
+        {{ end }}
+        {{ else }}
+        <p>No blog posts yet. Create your first post in <code>content/posts/</code>.</p>
+        {{ end }}
+      </div>
+    </div>
+  </div>
+</section>
+{{ end }}

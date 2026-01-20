@@ -1,0 +1,61 @@
+baseURL = 'https://ismaelmejia.com/'
+languageCode = 'en-us'
+title = 'Ismaël Mejía'
+
+# Enable relative URLs for local development
+relativeURLs = true
+uglyURLs = false
+
+# Content settings
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+  [markup.highlight]
+    style = 'monokai'
+    lineNos = false
+
+# Pagination for blog posts
+paginate = 10
+
+# Taxonomies
+[taxonomies]
+  tag = 'tags'
+  category = 'categories'
+
+# Menu configuration
+[menus]
+  [[menus.main]]
+    name = 'Home'
+    pageRef = '/'
+    weight = 10
+  [[menus.main]]
+    name = 'Blog'
+    pageRef = '/posts'
+    weight = 20
+  [[menus.main]]
+    name = 'About'
+    pageRef = '/about'
+    weight = 30
+
+# Site parameters
+[params]
+  description = 'Personal webpage of Ismaël Mejía'
+  author = 'Ismaël Mejía'
+  profileImage = '/media/profile_picture.png'
+  
+  # Social links
+  github = 'iemejia'
+  linkedin = '15353125'
+  
+  # Date format
+  dateFormat = 'January 2, 2006'
+
+# Build settings
+[build]
+  writeStats = true
+
+# Output formats
+[outputs]
+  home = ['HTML', 'RSS']
+  section = ['HTML', 'RSS']

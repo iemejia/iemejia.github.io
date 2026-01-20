@@ -1,0 +1,10 @@
+<header>
+  <nav class="clearfix">
+    <a href="{{ "/" | relURL }}" id="pull">{{ .Site.Title }}</a>
+    <ul class="clearfix">
+      {{ range .Site.Menus.main }}
+      <li><a href="{{ .URL | relURL }}" class="section{{ if $.IsMenuCurrent "main" . }} active{{ end }}">{{ .Name }}</a></li>
+      {{ end }}
+    </ul>
+  </nav>
+</header>
