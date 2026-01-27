@@ -504,34 +504,98 @@
 
     <footer>Last update: March 8, 2014</footer>
 
-    <script type="text/javascript" src="js/jquery.min.js"></script>
-    <script type="text/javascript" src="js/jquery.easing.min.js"></script>
-    <script type="text/javascript" src="js/jquery.scrollTo.min.js"></script>
     <script type="text/javascript">
-      $(document).ready(function (){
-        var pull        = $('#pull');
-            menu        = $('nav ul');
-            menuHeight  = menu.height();
+      document.addEventListener('DOMContentLoaded', function() {
+        var pull = document.getElementById('pull');
+        var menu = document.querySelector('nav ul');
 
-        $(pull).on('click', function(e) {
+        // Slide toggle animation helper
+        function slideToggle(element, duration) {
+          duration = duration || 300;
+          if (element.offsetHeight === 0 || getComputedStyle(element).display === 'none') {
+            // Slide down
+            element.style.display = 'block';
+            var height = element.scrollHeight;
+            element.style.overflow = 'hidden';
+            element.style.height = '0';
+            element.offsetHeight; // Force reflow
+            element.style.transition = 'height ' + duration + 'ms ease';
+            element.style.height = height + 'px';
+            setTimeout(function() {
+              element.style.removeProperty('height');
+              element.style.removeProperty('overflow');
+              element.style.removeProperty('transition');
+            }, duration);
+          } else {
+            // Slide up
+            element.style.overflow = 'hidden';
+            element.style.height = element.offsetHeight + 'px';
+            element.offsetHeight; // Force reflow
+            element.style.transition = 'height ' + duration + 'ms ease';
+            element.style.height = '0';
+            setTimeout(function() {
+              element.style.display = 'none';
+              element.style.removeProperty('height');
+              element.style.removeProperty('overflow');
+              element.style.removeProperty('transition');
+            }, duration);
+          }
+        }
+
+        // Easing function (easeInOutQuad)
+        function easeInOutQuad(t) {
+          return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+        }
+
+        // Smooth scroll to element
+        function smoothScrollTo(target, duration) {
+          var targetElement = document.querySelector(target);
+          if (!targetElement) return;
+          var startPosition = window.pageYOffset;
+          var targetPosition = targetElement.getBoundingClientRect().top + startPosition;
+          var startTime = null;
+
+          function animation(currentTime) {
+            if (startTime === null) startTime = currentTime;
+            var elapsed = currentTime - startTime;
+            var progress = Math.min(elapsed / duration, 1);
+            var easeProgress = easeInOutQuad(progress);
+            window.scrollTo(0, startPosition + (targetPosition - startPosition) * easeProgress);
+            if (elapsed < duration) {
+              requestAnimationFrame(animation);
+            }
+          }
+          requestAnimationFrame(animation);
+        }
+
+        // Mobile menu toggle
+        if (pull) {
+          pull.addEventListener('click', function(e) {
             e.preventDefault();
-            menu.slideToggle();
+            slideToggle(menu, 300);
+          });
+        }
+
+        // Section navigation with smooth scroll
+        var sections = document.querySelectorAll('.section');
+        sections.forEach(function(section) {
+          section.addEventListener('click', function(e) {
+            e.preventDefault();
+            // Close mobile menu if visible
+            if (pull && getComputedStyle(pull).display !== 'none') {
+              slideToggle(menu, 500);
+            }
+            var target = this.getAttribute('href');
+            smoothScrollTo(target, 800);
+          });
         });
 
-        $('.section').click(function(e){
-            e.preventDefault();
-            if (pull.is(':visible')) {
-              menu.slideToggle('slow');
-            }
-            section = $(this).attr('href');
-            $.scrollTo(section, 800, {easing: 'easeInOutQuad'});
-        });
-
-        $(window).resize(function(){
-            var w = $(window).width();
-            if(w > 320 && menu.is(':hidden')) {
-                menu.removeAttr('style');
-            }
+        // Handle window resize
+        window.addEventListener('resize', function() {
+          var w = window.innerWidth;
+          if (w > 320 && menu.offsetHeight === 0) {
+            menu.removeAttribute('style');
+          }
         });
       });
     </script>
