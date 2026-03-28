@@ -26,7 +26,7 @@
     </div>
     <div class="row clearfix">
       <div class="column">
-        {{ $posts := where .Site.RegularPages "Section" "posts" }}
+        {{ $posts := where .Site.RegularPages "Section" "blog" }}
         {{ if $posts }}
         <ul class="post-list">
           {{ range first 5 $posts }}

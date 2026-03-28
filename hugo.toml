@@ -31,7 +31,7 @@ paginate = 10
     weight = 10
   [[menus.main]]
     name = 'Blog'
-    pageRef = '/posts'
+    pageRef = '/blog'
     weight = 20
   [[menus.main]]
     name = 'About'
@@ -54,6 +54,10 @@ paginate = 10
 # Build settings
 [build]
   writeStats = true
+
+# Permalinks
+[permalinks]
+  blog = '/blog/:year/:month/:day/:slug/'
 
 # Output formats
 [outputs]

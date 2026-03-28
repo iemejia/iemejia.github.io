@@ -52,10 +52,10 @@ hugo server -D
 Create a new blog post:
 
 ```sh
-hugo new posts/my-new-post.md
+hugo new blog/my-new-post.md
 ```
 
-This uses the archetype in `archetypes/posts.md` to scaffold the front matter.
+This uses the archetype in `archetypes/blog.md` to scaffold the front matter.
 
 ## Testing
 
