@@ -466,6 +466,11 @@ li:hover {
 .post-list a {
   font-size: 1.15rem;
   font-weight: 600;
+  transition: none;
+}
+
+.post-list a:hover {
+  color: var(--color-primary);
 }
 
 .post-date {
