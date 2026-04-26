@@ -5,8 +5,9 @@ Personal website and blog built with [Hugo](https://gohugo.io/).
 ## Prerequisites
 
 - [Hugo](https://gohugo.io/installation/) (v0.159.1 or later)
+- [Node.js](https://nodejs.org/) (for Playwright validation tests)
 
-No other dependencies are required. The site uses a custom theme defined in `layouts/` and does not rely on npm, Go modules, or git submodules.
+The site uses a custom Hugo theme defined in `layouts/`. npm is used only for browser-based validation tests.
 
 ## Project Structure
 
@@ -20,7 +21,18 @@ No other dependencies are required. The site uses a custom theme defined in `lay
 │   ├── partials/   # Reusable template fragments (header, footer)
 │   └── index.html  # Homepage template
 ├── static/         # Static assets (CSS, images)
+├── tests/          # Playwright navigation and accessibility tests
+├── package.json    # Test dependencies and scripts
 └── hugo.toml       # Hugo configuration
+```
+
+## Setup
+
+Install the JavaScript dependencies and Playwright browsers once after cloning:
+
+```sh
+npm install
+npm run test:install
 ```
 
 ## Build
@@ -47,6 +59,14 @@ To include draft posts:
 hugo server -D
 ```
 
+For consistency with the Playwright configuration, you can also run:
+
+```sh
+hugo server --port 1313 --disableFastRender --bind 127.0.0.1
+```
+
+Playwright starts this server automatically when running tests, so you do not need to keep a separate server running for validation.
+
 ## Creating Content
 
 Create a new blog post:
@@ -57,9 +77,9 @@ hugo new blog/my-new-post.md
 
 This uses the archetype in `archetypes/blog.md` to scaffold the front matter.
 
-## Testing
+## Validation
 
-Hugo does not have a built-in test framework, but you can verify the site builds without errors:
+Run a Hugo build check:
 
 ```sh
 hugo --printPathWarnings
@@ -72,6 +92,41 @@ To additionally check for draft or expired content issues:
 ```sh
 hugo --buildDrafts --buildExpired --buildFuture --printPathWarnings
 ```
+
+Run the full browser validation suite:
+
+```sh
+npm test
+```
+
+This runs Playwright against a local Hugo server and validates:
+
+- Top navigation links from `/`, `/about/`, and `/blog/`.
+- Desktop and mobile navigation behavior.
+- Mobile menu `aria-expanded` behavior.
+- Accessibility checks with Axe on desktop and mobile.
+- Accessibility checks with the mobile menu open.
+
+Run only accessibility checks:
+
+```sh
+npm run test:a11y
+```
+
+Open Playwright's interactive UI while developing tests:
+
+```sh
+npm run test:ui
+```
+
+Recommended pre-commit workflow:
+
+```sh
+hugo --printPathWarnings
+npm test
+```
+
+Both commands should pass before committing changes to templates, CSS, navigation, or content.
 
 ## Deployment to GitHub Pages
 
