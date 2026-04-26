@@ -3,8 +3,8 @@
 :root {
   --color-bg: #ffffff;
   --color-bg-alt: #f8f9fa;
-  --color-text: #1a1a2e;
-  --color-text-muted: #6b7280;
+  --color-text: #111827;
+  --color-text-muted: #4b5563;
   
   /* Sober accent colors */
   --color-primary: #374151;
@@ -447,6 +447,31 @@ a:not(nav a):hover::after {
 
 .post-content {
   line-height: 1.5;
+}
+
+.post-content ul,
+.post-content ol {
+  margin: 0 0 1rem 0;
+  padding-left: 1.25rem;
+}
+
+.post-content li {
+  border-bottom: 0;
+  margin-bottom: 0.125rem;
+}
+
+.post-content li > p {
+  margin: 0;
+}
+
+.post-content li:last-child,
+.post-content li > p:last-child {
+  margin-bottom: 0;
+}
+
+.post-content li::after,
+.post-content li > p::after {
+  display: none;
 }
 
 .post-content img {
