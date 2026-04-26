@@ -1,0 +1,14 @@
+{
+  "name": "iemejia-site-tests",
+  "version": "1.0.0",
+  "private": true,
+  "description": "End-to-end tests for the site (navigation, links, etc.)",
+  "scripts": {
+    "test": "playwright test",
+    "test:ui": "playwright test --ui",
+    "test:install": "playwright install --with-deps chromium"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.48.0"
+  }
+}
