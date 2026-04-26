@@ -1,6 +1,7 @@
 # Hugo build output
 /public/
 /resources/_gen/
+.hugo_build.lock
 
 # Hugo stats file
 hugo_stats.json
@@ -18,3 +19,4 @@ Thumbs.db
 *~
 .idea/
 .vscode/
+
