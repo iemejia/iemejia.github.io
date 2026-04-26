@@ -311,6 +311,42 @@ section:first-of-type::before {
 
 .center { text-align: center; }
 
+/* Social links */
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  margin: 1rem 0 0.75rem;
+}
+
+.social-links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  color: var(--color-text-muted);
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  transition: color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.social-links a::after {
+  display: none;
+}
+
+.social-links a:hover {
+  color: var(--color-accent);
+  border-color: var(--color-accent);
+  transform: translateY(-2px);
+}
+
+.social-links svg {
+  width: 1.1rem;
+  height: 1.1rem;
+  fill: currentColor;
+}
+
 /* Profile image */
 img[alt="Profile Picture"] {
   border-radius: 1rem;

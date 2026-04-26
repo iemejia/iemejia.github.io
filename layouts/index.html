@@ -10,7 +10,22 @@
         {{ with .Site.Params.profileImage }}
         <img src="{{ . | relURL }}" alt="Profile Picture" style="width: 100%; max-width: 280px;" />
         {{ end }}
-        <p style="margin-top: 0.75rem;">{{ .Site.Params.author }}</p>
+        <div class="social-links" aria-label="Social links">
+          {{ with .Site.Params.github }}
+          <a href="https://github.com/{{ . }}" aria-label="GitHub profile" title="GitHub">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M12 2C6.48 2 2 6.59 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.09.68-.22.68-.49 0-.24-.01-1.05-.01-1.9-2.51.47-3.16-.63-3.36-1.21-.11-.3-.6-1.21-1.03-1.46-.35-.19-.85-.66-.01-.67.79-.01 1.35.74 1.54 1.05.9 1.55 2.34 1.11 2.91.85.09-.67.35-1.11.64-1.37-2.22-.26-4.55-1.14-4.55-5.06 0-1.12.39-2.04 1.03-2.76-.1-.26-.45-1.31.1-2.72 0 0 .84-.28 2.75 1.05A9.28 9.28 0 0 1 12 6.95c.85 0 1.71.12 2.51.34 1.91-1.33 2.75-1.05 2.75-1.05.55 1.41.2 2.46.1 2.72.64.72 1.03 1.64 1.03 2.76 0 3.93-2.34 4.8-4.57 5.06.36.32.68.93.68 1.89 0 1.37-.01 2.47-.01 2.81 0 .27.18.59.69.49A10.08 10.08 0 0 0 22 12.25C22 6.59 17.52 2 12 2Z" />
+            </svg>
+          </a>
+          {{ end }}
+          {{ with .Site.Params.linkedin }}
+          <a href="https://www.linkedin.com/in/{{ . }}/" aria-label="LinkedIn profile" title="LinkedIn">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M6.94 8.99H3.76v10.22h3.18V8.99ZM5.35 4a1.84 1.84 0 1 0 0 3.68 1.84 1.84 0 0 0 0-3.68Zm13.9 9.63c0-3.08-1.65-4.51-3.84-4.51-1.77 0-2.56.97-3 1.66V8.99H9.36c.04.96 0 10.22 0 10.22h3.18v-5.71c0-.31.02-.61.11-.83.23-.61.76-1.24 1.65-1.24 1.16 0 1.63.89 1.63 2.19v5.59h3.18l.14-5.58Z" />
+            </svg>
+          </a>
+          {{ end }}
+        </div>
       </div>
     </div>
   </div>

@@ -2,7 +2,7 @@
 title: "Home"
 ---
 
-I'm a Software Engineer currently working on Cloud Computing and Big Data systems.
+I'm Ismaël Mejía, a Software Engineer currently working on Cloud Computing and Big Data systems.
 
 Welcome to my personal webpage.
 
