@@ -19,7 +19,7 @@
   --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.1);
   
   --font-sans: "Source Sans 3", system-ui, -apple-system, sans-serif;
-  --font-serif: "Source Serif 4", Georgia, serif;
+  --font-serif: "PT Serif", Georgia, Times, "Times New Roman", serif;
   --max-width: 40rem;
 }
 
