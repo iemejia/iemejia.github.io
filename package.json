@@ -4,6 +4,7 @@
   "private": true,
   "description": "End-to-end tests for the site (navigation, links, etc.)",
   "scripts": {
+    "validate": "hugo --printPathWarnings && playwright test",
     "test": "playwright test",
     "test:a11y": "playwright test tests/accessibility.spec.js",
     "test:ui": "playwright test --ui",

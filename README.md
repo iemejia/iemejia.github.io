@@ -79,7 +79,15 @@ This uses the archetype in `archetypes/blog.md` to scaffold the front matter.
 
 ## Validation
 
-Run a Hugo build check:
+Run the same validation used by the GitHub Pages workflow:
+
+```sh
+npm run validate
+```
+
+This command runs the Hugo build check and the full Playwright browser suite. Use it before pushing changes.
+
+Run only the Hugo build check:
 
 ```sh
 hugo --printPathWarnings
@@ -93,7 +101,7 @@ To additionally check for draft or expired content issues:
 hugo --buildDrafts --buildExpired --buildFuture --printPathWarnings
 ```
 
-Run the full browser validation suite:
+Run only the browser validation suite:
 
 ```sh
 npm test
@@ -122,8 +130,7 @@ npm run test:ui
 Recommended pre-commit workflow:
 
 ```sh
-hugo --printPathWarnings
-npm test
+npm run validate
 ```
 
 Both commands should pass before committing changes to templates, CSS, navigation, or content.

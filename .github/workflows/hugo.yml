@@ -46,11 +46,8 @@ jobs:
       - name: Install Playwright browsers
         run: npx playwright install --with-deps chromium webkit
 
-      - name: Validate Hugo build
-        run: hugo --printPathWarnings
-
-      - name: Run Playwright tests
-        run: npm test
+      - name: Validate site
+        run: npm run validate
 
       - name: Build
         run: hugo --minify --baseURL "https://ismaelmejia.com/"
