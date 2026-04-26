@@ -10,7 +10,8 @@
     if (pull) {
       pull.addEventListener('click', function(e) {
         e.preventDefault();
-        menu.classList.toggle('open');
+        var isOpen = menu.classList.toggle('open');
+        pull.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
       });
     }
 
@@ -24,6 +25,7 @@
           // Close mobile menu if open
           if (window.getComputedStyle(pull).display !== 'none') {
             menu.classList.remove('open');
+            pull.setAttribute('aria-expanded', 'false');
           }
           var target = document.querySelector(href);
           if (target) {
@@ -53,6 +55,7 @@
     window.addEventListener('resize', function() {
       if (window.innerWidth > 640) {
         menu.classList.remove('open');
+        pull.setAttribute('aria-expanded', 'false');
       } else {
         // Always show nav on mobile
         nav.classList.add('visible');

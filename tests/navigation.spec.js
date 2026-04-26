@@ -37,7 +37,9 @@ for (const fromPage of SOURCE_PAGES) {
         // Ensure the nav is interactive (mobile collapses it behind a toggle)
         const pull = page.locator('#pull');
         if (await pull.isVisible()) {
+          await expect(pull).toHaveAttribute('aria-expanded', 'false');
           await pull.click();
+          await expect(pull).toHaveAttribute('aria-expanded', 'true');
         }
 
         const link = page.locator('nav ul li a', {
