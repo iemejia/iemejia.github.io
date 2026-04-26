@@ -1,29 +1,22 @@
-/* Modern minimal design with colored accents */
+/* Modern minimal design with sober palette */
 
 :root {
   --color-bg: #ffffff;
-  --color-bg-alt: #fafafa;
-  --color-text: #0f172a;
-  --color-text-muted: #64748b;
+  --color-bg-alt: #f8f9fa;
+  --color-text: #1a1a2e;
+  --color-text-muted: #6b7280;
   
-  /* Vibrant accent colors */
-  --color-primary: #6366f1;
-  --color-secondary: #8b5cf6;
-  --color-accent-cyan: #06b6d4;
-  --color-accent-emerald: #10b981;
-  --color-accent-amber: #f59e0b;
-  --color-accent-rose: #f43f5e;
+  /* Sober accent colors */
+  --color-primary: #374151;
+  --color-secondary: #4b5563;
+  --color-accent: #2563eb;
+  --color-accent-light: #3b82f6;
   
-  /* Gradients */
-  --gradient-primary: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
-  --gradient-warm: linear-gradient(135deg, #f59e0b 0%, #f43f5e 100%);
-  --gradient-cool: linear-gradient(135deg, #06b6d4 0%, #10b981 100%);
-  
-  --color-border: #e2e8f0;
+  --color-border: #e5e7eb;
   
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04);
-  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
-  --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.12);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.1);
   
   --font-sans: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
   --max-width: 44rem;
@@ -81,18 +74,18 @@ li {
 }
 
 li::marker {
-  color: var(--color-primary);
+  color: var(--color-secondary);
 }
 
 a {
-  color: var(--color-primary);
+  color: var(--color-accent);
   text-decoration: none;
   font-weight: 500;
   transition: color 0.2s ease;
 }
 
 a:hover {
-  color: var(--color-secondary);
+  color: var(--color-accent-light);
 }
 
 footer {
@@ -163,13 +156,13 @@ nav a::after {
   transform: translateX(-50%);
   width: 0;
   height: 2px;
-  background: var(--gradient-primary);
+  background: var(--color-primary);
   border-radius: 1px;
   transition: width 0.2s ease;
 }
 
 nav a:hover {
-  color: var(--color-primary);
+  color: var(--color-text);
 }
 
 nav a:hover::after {
@@ -270,62 +263,6 @@ section:first-of-type {
 
 section:first-of-type::before {
   display: none;
-}
-
-/* Professional section - cyan/teal accent */
-section:nth-of-type(2) {
-  background: var(--color-bg-alt);
-}
-
-section:nth-of-type(2)::before {
-  background: var(--gradient-cool);
-}
-
-section:nth-of-type(2) h1 {
-  color: var(--color-accent-cyan);
-}
-
-section:nth-of-type(2) li::marker {
-  color: var(--color-accent-cyan);
-}
-
-/* Academic section - purple accent */
-section:nth-of-type(3)::before {
-  background: var(--gradient-primary);
-}
-
-section:nth-of-type(3) h1 {
-  color: var(--color-primary);
-}
-
-/* Industry section - warm accent */
-section:nth-of-type(4) {
-  background: var(--color-bg-alt);
-}
-
-section:nth-of-type(4)::before {
-  background: var(--gradient-warm);
-}
-
-section:nth-of-type(4) h1 {
-  color: var(--color-accent-amber);
-}
-
-section:nth-of-type(4) li::marker {
-  color: var(--color-accent-amber);
-}
-
-/* Other section - emerald accent */
-section:nth-of-type(5)::before {
-  background: linear-gradient(135deg, #10b981 0%, #06b6d4 100%);
-}
-
-section:nth-of-type(5) h1 {
-  color: var(--color-accent-emerald);
-}
-
-section:nth-of-type(5) li::marker {
-  color: var(--color-accent-emerald);
 }
 
 /* Container */
@@ -439,15 +376,6 @@ a:not(nav a):hover::after {
   width: 100%;
 }
 
-/* Smooth hover on list items */
-li {
-  transition: color 0.2s ease;
-}
-
-li:hover {
-  color: var(--color-primary);
-}
-
 /* Blog post styles */
 .post-list {
   list-style: none;
@@ -470,7 +398,7 @@ li:hover {
 }
 
 .post-list a:hover {
-  color: var(--color-primary);
+  color: var(--color-accent);
 }
 
 .post-date {
@@ -509,7 +437,7 @@ li:hover {
 
 .post-tags a {
   margin-right: 0.5rem;
-  color: var(--color-secondary);
+  color: var(--color-accent);
 }
 
 .post-content {
@@ -524,7 +452,7 @@ li:hover {
 }
 
 .post-content blockquote {
-  border-left: 4px solid var(--color-primary);
+  border-left: 4px solid var(--color-secondary);
   padding-left: 1.5rem;
   margin: 1.5rem 0;
   font-style: italic;
