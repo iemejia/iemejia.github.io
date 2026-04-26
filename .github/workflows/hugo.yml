@@ -25,6 +25,33 @@ jobs:
         with:
           hugo-version: 'latest'
 
+      - name: Setup Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: package-lock.json
+
+      - name: Install dependencies
+        run: npm ci --prefer-offline --no-audit
+
+      - name: Cache Playwright browsers
+        uses: actions/cache@v5
+        with:
+          path: ~/.cache/ms-playwright
+          key: ${{ runner.os }}-playwright-${{ hashFiles('package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-playwright-
+
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps chromium webkit
+
+      - name: Validate Hugo build
+        run: hugo --printPathWarnings
+
+      - name: Run Playwright tests
+        run: npm test
+
       - name: Build
         run: hugo --minify --baseURL "https://ismaelmejia.com/"
 
