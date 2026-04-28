@@ -419,17 +419,17 @@ a:not(nav a):hover::after {
 
 /* Blog post styles */
 .post-list {
-  list-style: none;
   padding-left: 0;
 }
 
-.post-list li {
+.post-list > li {
+  list-style: none;
   margin-bottom: 0;
   padding: 0.875rem 0;
   border-bottom: 1px solid var(--color-border);
 }
 
-.post-list li:last-child {
+.post-list > li:last-child {
   border-bottom: none;
 }
 
@@ -455,6 +455,30 @@ a:not(nav a):hover::after {
   margin-top: 0.5rem;
   margin-bottom: 0;
   color: var(--color-text);
+}
+
+.post-summary ul,
+.post-summary ol {
+  margin: 0 0 1rem 0;
+  padding-left: 1.25rem;
+}
+
+.post-summary ul {
+  list-style-type: disc;
+}
+
+.post-summary li {
+  border-bottom: 0;
+  margin-bottom: 0.125rem;
+}
+
+.post-summary li > p {
+  margin: 0;
+}
+
+.post-summary li:last-child,
+.post-summary li > p:last-child {
+  margin-bottom: 0;
 }
 
 /* Single post styles */
