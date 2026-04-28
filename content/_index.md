@@ -2,8 +2,8 @@
 title: "Home"
 ---
 
-I'm Ismaël Mejía, a Software Engineer currently working on Cloud Computing and Big Data systems.
+Hi! I am Ismaël Mejía, a software engineer with experience in distributed systems, cloud computing, data‑intensive systems, and open source.
 
-Welcome to my personal webpage.
+I currently work at Microsoft as a Technical Program Manager in the Developer Relations Data team.
 
-For my previous research work, please refer to [this page](http://www.emn.fr/z-info/imejia09/)
+Welcome to my personal webpage!
