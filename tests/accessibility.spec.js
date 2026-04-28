@@ -4,7 +4,6 @@ const AxeBuilder = require('@axe-core/playwright').default;
 
 const PAGES = [
   { name: 'home', path: '/' },
-  { name: 'about', path: '/about/' },
   { name: 'blog', path: '/blog/' },
 ];
 

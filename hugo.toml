@@ -33,11 +33,6 @@ paginate = 10
     name = 'Blog'
     pageRef = '/blog'
     weight = 20
-  [[menus.main]]
-    name = 'About'
-    pageRef = '/about'
-    weight = 30
-
 # Site parameters
 [params]
   description = 'Personal webpage of Ismaël Mejía'

@@ -6,7 +6,7 @@ const { test, expect } = require('@playwright/test');
  * Each page should expose the same set of menu links and they should all
  * navigate to the expected target URL.
  */
-const SOURCE_PAGES = ['/', '/about/', '/blog/'];
+const SOURCE_PAGES = ['/', '/blog/'];
 
 /**
  * Expected menu items: visible label -> target pathname (after navigation).
@@ -14,7 +14,6 @@ const SOURCE_PAGES = ['/', '/about/', '/blog/'];
 const EXPECTED_MENU = [
   { label: 'Home', path: '/' },
   { label: 'Blog', path: '/blog/' },
-  { label: 'About', path: '/about/' },
 ];
 
 for (const fromPage of SOURCE_PAGES) {
